@@ -8,18 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.finance.entities.Transaction;
 
-
-@Service
 @Transactional
-public class TransactionDAOImple implements TransactionDAO {
-	
-	@PersistenceContext
-	private EntityManager em;
+@Service
+public class TransactionDAOImpl implements TransactionDAO{
 
+	  @PersistenceContext
+	  private EntityManager em;
+	
 	@Override
 	public Transaction findById(int id) {
-		Transaction transaction = em.find(Transaction.class, id);
-		return transaction;
+		return em.find(Transaction.class, 1);
+		
 	}
 
 }
