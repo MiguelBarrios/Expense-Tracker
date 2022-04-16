@@ -32,7 +32,7 @@ class TransactionTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		transaction = em.find(Transaction.class, 1);
+		transaction = em.find(Transaction.class, 2);
 	}
 
 	@AfterEach
@@ -44,7 +44,11 @@ class TransactionTest {
 	@Test
 	void test_transaction_entity_mapping() {
 		assertNotNull(transaction);
-		assertEquals(7.99, transaction.getAmount());
+		assertEquals(59.99, transaction.getAmount());
+		assertEquals(1, transaction.getUserId());
+		assertEquals("Utilities", transaction.getCategory());
+		assertEquals("Energy", transaction.getSubCategory());
+		assertEquals("OGE", transaction.getPayee());
 	}
 
 }
