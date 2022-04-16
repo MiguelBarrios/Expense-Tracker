@@ -21,4 +21,11 @@ public class TransactionDAOImpl implements TransactionDAO{
 		
 	}
 
+	@Override
+	public Transaction addNewTransaction(Transaction transaction) {
+		em.persist(transaction);
+		em.flush();
+		return transaction;
+	}
+
 }
