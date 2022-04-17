@@ -1,5 +1,6 @@
 package com.skilldistillery.finance.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,9 @@ public class TransactionController {
 	}
 	
 	@RequestMapping(path= "addTransaction.do")
-	public String addTransaction(Transaction transaction) {
+	public String addTransaction(Transaction transaction, String transaction_date) {
+		LocalDate date = LocalDate.parse(transaction_date);
+		transaction.setTransactionDate(date);
 		transaction = dao.addNewTransaction(transaction);
 		return "index";
 	}
@@ -64,8 +67,9 @@ public class TransactionController {
 	}
 	
 	@RequestMapping(path = "updateTransaction.do", method = RequestMethod.POST)
-	public String remove(Transaction transaction, Model model) {
-		System.out.println(transaction);
+	public String remove(Transaction transaction, Model model, String transaction_date) {
+		LocalDate date = LocalDate.parse(transaction_date);
+		transaction.setTransactionDate(date);
 		boolean updated = dao.update(transaction);
 		String message = updated ? "Transaction updated succesfully" : "Problem updated transaction";
 		model.addAttribute("message", message);

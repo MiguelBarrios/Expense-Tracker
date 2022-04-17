@@ -8,8 +8,6 @@
 </head>
 <body>
 	<h1>Edit transaction page</h1>
-	<p>${transaction}</p>
-
 	<form action="updateTransaction.do" method="POST">
 		<table class="table">
 			<thead>
@@ -41,9 +39,9 @@
 								Entertainment</option>
 							<option value="Miscellaneous">Miscellaneous</option>
 					</select></td>
-					<td><input type="text" class="form-control" name="subCategory"></td>
-					<td><input type="date" name="transaction_date" required></td>
-					<td><input type="text" class="form-control" name="payee"></td>
+					<td><input type="text" class="form-control" name="subCategory" value="${transaction.subCategory}"></td>
+					<td><input type="date" name="transaction_date" required value="${transaction.transactionDate}"></td>
+					<td><input type="text" class="form-control" name="payee" value="${transaction.payee}"></td>
 				</tr>
 			</tbody>
 		</table>

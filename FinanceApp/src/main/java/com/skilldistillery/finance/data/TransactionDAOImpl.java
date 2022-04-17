@@ -54,11 +54,19 @@ public class TransactionDAOImpl implements TransactionDAO{
 		int count = 0;
 		
 		String query = "UPDATE Transaction t SET\n"
-				+ "amount = :amount\n"
+				+ "amount = :amount,\n"
+				+ "category = :category,\n"
+				+ "subCategory = :subCategory,\n"
+				+ "transactionDate = :transactionDate,\n"
+				+ "payee = :payee\n"
 				+ "WHERE id = :tid";
 			
 		count = em.createQuery(query)
 				.setParameter("amount", transaction.getAmount())
+				.setParameter("category", transaction.getCategory())
+				.setParameter("subCategory", transaction.getSubCategory())
+				.setParameter("transactionDate", transaction.getTransactionDate())
+				.setParameter("payee", transaction.getPayee())
 				.setParameter("tid", transaction.getId())
 				.executeUpdate();
 		
