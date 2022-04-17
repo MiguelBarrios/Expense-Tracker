@@ -32,7 +32,9 @@ public class TransactionDAOImpl implements TransactionDAO{
 
 	@Override
 	public List<Transaction> getTransactions() {
-		String query = "SELECT t from Transaction t";
+		String query = "SELECT t from Transaction t\n"
+				+ "ORDER BY id DESC";
+		
 		List<Transaction> transactions = em.createQuery(query, Transaction.class).getResultList();
 		return transactions;
 	}

@@ -1,3 +1,16 @@
-body {
-	
+*{
+    line-height: normal !important;
+}
+
+#container_main {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  	margin: 6%;
+  	
+}
+
+.formItem {
+	min-height: 100%;
 }
