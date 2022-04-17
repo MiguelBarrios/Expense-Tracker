@@ -34,7 +34,14 @@
 					<td><c:out value="${t.amount}" /></td>
 					<td><c:out value="${t.category}" /></td>
 					<td><c:out value="${t.transactionDate}" /></td>
-					<button type="button" class="btn btn-warning">Edit</button>
+					<td>
+						<form action = "showUpdateTransactionPage.do">
+							<input name="tid" value="${t.id}" style="display: none;"></input>
+							<button type="submit" class="btn btn-warning">Edit</button>
+						</form>
+					</td>
+					
+					
 					
 
 					<td>

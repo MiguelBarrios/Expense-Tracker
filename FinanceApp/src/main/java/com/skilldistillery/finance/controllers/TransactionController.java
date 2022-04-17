@@ -53,6 +53,24 @@ public class TransactionController {
 		
 		return "message";
 	}
+	
+	@RequestMapping(path="showUpdateTransactionPage.do")
+	public String showUpdateTransactionPage(int tid, Model model) {
+		System.out.println(tid);
+		Transaction transaction = dao.findById(tid);
+		System.out.println(transaction);
+		model.addAttribute("transaction", transaction);
+		return "editTransaction";
+	}
+	
+	@RequestMapping(path = "updateTransaction.do", method = RequestMethod.POST)
+	public String remove(Transaction transaction, Model model) {
+		System.out.println(transaction);
+		boolean updated = dao.update(transaction);
+		String message = updated ? "Transaction updated succesfully" : "Problem updated transaction";
+		model.addAttribute("message", message);
+		return "message";
+	}
 }
 
 

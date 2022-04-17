@@ -19,7 +19,7 @@ public class TransactionDAOImpl implements TransactionDAO{
 	
 	@Override
 	public Transaction findById(int id) {
-		return em.find(Transaction.class, 1);
+		return em.find(Transaction.class, id);
 		
 	}
 
@@ -47,6 +47,22 @@ public class TransactionDAOImpl implements TransactionDAO{
 		//em.flush();
 		return !em.contains(transaction);
 
+	}
+
+	@Override
+	public boolean update(Transaction transaction) {
+		int count = 0;
+		
+		String query = "UPDATE Transaction t SET\n"
+				+ "amount = :amount\n"
+				+ "WHERE id = :tid";
+			
+		count = em.createQuery(query)
+				.setParameter("amount", transaction.getAmount())
+				.setParameter("tid", transaction.getId())
+				.executeUpdate();
+		
+		return (count == 1); 
 	}
 
 }
