@@ -38,6 +38,24 @@ public class TransactionDAOImpl implements TransactionDAO{
 		List<Transaction> transactions = em.createQuery(query, Transaction.class).getResultList();
 		return transactions;
 	}
+	
+	@Override
+	public List<Transaction> getFilteredTransactions(String category, String keyword) {
+		List<Transaction> transactions = null;
+		
+		if(category == null) {
+			transactions = getTransactions();
+		}
+		else {
+			String query = "SELECT t FROM Transaction t\n"
+				+ "WHERE category = :category";
+		
+			transactions = em.createQuery(query, Transaction.class)
+			.setParameter("category", category).getResultList();
+		}
+		
+		return transactions;
+	}
 
 	@Override
 	public boolean remove(int tid) {
@@ -76,31 +94,3 @@ public class TransactionDAOImpl implements TransactionDAO{
 	}
 
 }
-
-/**
- * //		String query = "SELECT s FROM Staff s where s.id <= 10";
-//		List<Staff> staff = em.createQuery(query, Staff.class).getResultList();
-//		System.out.println(staff);
-//		
-//		
-//		// Query a single property
-//		String query2 = "SELECT s.firstName FROM Staff s where s.id <= 10";
-//		List<String> names = em.createQuery(query2, String.class).getResultList();
-//		System.out.println(names);
-//		
-//		// query multiple properties, but not all in a table
-//		String jpql = "SELECT s.firstName, s.lastName FROM Staff s";
-//		List<Object[]> res = em.createQuery(jpql, Object[].class).getResultList();
-//		for(Object[] item : res) {
-//			System.out.println(item[0] + " " + item[1]);
-//		}
-//		
-		
-		// adding params/ binding variables
-//		String jpql = "SELECT s FROM Staff s WHERE s.email = :email";
-//		List<Staff> staff = em.createQuery(jpql, Staff.class)
-//				.setParameter("email", "larry.kong@example.com")
-//				.getResultList();
-//		
-//		System.out.println(staff);
- **/

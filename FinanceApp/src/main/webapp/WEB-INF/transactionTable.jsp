@@ -34,4 +34,10 @@
 			</tr>
 		</c:forEach>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td>Total</td>
+			<td>$${sum}</td>
+		</tr>
+	</tfoot>
 </table>

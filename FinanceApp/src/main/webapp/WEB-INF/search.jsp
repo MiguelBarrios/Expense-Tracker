@@ -15,12 +15,42 @@
 </head>
 <body>
 
-	<div id="container_main">
+	<div class="container_main">
 		<jsp:include page="navbar.jsp" />
-		<h1>Search Transactions</h1>
+		<h1>Search</h1>
+		<form class="form-group" action="searchtransactions.do">
+			<div class="form_container">
+				<div class="formRow">
+					<div>
+						<label>Filter by category</label> 
+					</div>
+					<div>
+						<select name="category" class="form-control">
+							<option disabled selected value> -- select an option -- </option>
+							<option value="Food">Food</option>
+							<option value="Housing">Housing</option>
+							<option value="Transportation">Transportation</option>
+							<option value="Utilities">Utilities</option>
+							<option value="Insurance">Insurance</option>
+							<option value="Medical & Healthcare">Medical & Healthcare</option>
+							<option value="Saving/Investing">Saving/Investing</option>
+							<option value="Debt">Debt</option>
+							<option value="Personal Spending">Personal Spending</option>
+							<option value="Recreation & Entertainment">Recreation & Entertainment</option>
+							<option value="Miscellaneous">Miscellaneous</option>
+						</select>
+					</div>	
+				</div>
+				
+				<button class = "btn btn-success" type="submit" value="Submit">Search</button>
+				
+			</div>
 
+			
+		</form>
+
+		<h3>Transactions(${transactions.size()})</h3>
 		<jsp:include page="transactionTable.jsp" />
-
 
 	</div>
 

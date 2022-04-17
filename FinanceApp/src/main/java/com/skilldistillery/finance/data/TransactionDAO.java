@@ -10,4 +10,5 @@ public interface TransactionDAO {
 	boolean update(Transaction transaction);
 	boolean remove(int tid);
 	List<Transaction> getTransactions();
+	List<Transaction> getFilteredTransactions(String category, String keyword);
 }

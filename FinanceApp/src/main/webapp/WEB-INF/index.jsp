@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<div id="container_main">
+	<div class="container_main">
 		<jsp:include page="navbar.jsp" />
 		<h3>Add New Transaction</h3>
 
@@ -77,40 +77,9 @@
 
 		<!--  All Transactions View -->
 		<h3>Transactions(${transactions.size()})</h3>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th scope="col">Date</th>
-					<th scope="col">amount</th>
-					<th scope="col">Category</th>
-					<th scope="col">Sub Category</th>
-					<th scope="col">Merchant</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${transactions}" var="t">
-					<tr>
-						<td>${t.transactionDate}</td>
-						<td>${t.amount}</td>
-						<td>${t.category}</td>
-						<td>${t.subCategory}</td>
-						<td>${t.payee}</td>
-						<td>
-							<form action="showUpdateTransactionPage.do">
-								<input name="tid" value="${t.id}" style="display: none;"></input>
-								<button type="submit" class="btn btn-warning">Edit</button>
-							</form>
-						</td>
-						<td>
-							<form action="removeTransaction.do" method="POST">
-								<input name="tid" value="${t.id}" style="display: none;"></input>
-								<button type="submit" class="btn btn-danger">Delete</button>
-							</form>
-						</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		
+		<jsp:include page="transactionTable.jsp" />
+		
 	</div>
 	
 

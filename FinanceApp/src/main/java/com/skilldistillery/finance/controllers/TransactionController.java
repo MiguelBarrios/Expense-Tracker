@@ -23,6 +23,13 @@ public class TransactionController {
 	@RequestMapping(path= {"/", "home.do"})
 	public String index(Model model, Boolean messageFlag, String message) {
 		List<Transaction> transactions = dao.getTransactions();
+		//Temp
+		double sum = 0;
+		for(Transaction t : transactions)
+			sum += t.getAmount();
+		sum = (int)(sum * 100) / 100.0;
+		
+		model.addAttribute("sum", sum);
 		model.addAttribute("transactions", transactions);
 		if(messageFlag != null) {
 			model.addAttribute("messageFlag", messageFlag);
@@ -44,9 +51,26 @@ public class TransactionController {
 	}
 	
 	@RequestMapping(path= "searchtransactions.do")
-	public String searchTransaction(Model model) {
-		List<Transaction> transactions = dao.getTransactions();
+	public String searchTransaction(Model model, String category, String keyword) {
+		System.out.println("*** keyword: " + keyword);
+		List<Transaction> transactions = null;
+		
+		if(category == null && (keyword == null || keyword.length() == 0)){
+			transactions = dao.getTransactions();
+		}else{
+			transactions = dao.getFilteredTransactions(category, keyword);
+		}
+		
+		
+		//Temp
+		double sum = 0;
+		for(Transaction t : transactions)
+			sum += t.getAmount();
+		sum = (int)(sum * 100) / 100.0;
+		
+		model.addAttribute("sum", sum);
 		model.addAttribute("transactions", transactions);
+		
 		return "search";
 	}
 	
