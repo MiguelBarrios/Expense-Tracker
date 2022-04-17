@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyWebApp</title>
+<title>Finance App</title>
 <jsp:include page="cssStyles.jsp" />
 </head>
 <body>
 
 	<div id="container_main">
 		<jsp:include page="navbar.jsp" />
-		<h1>Add new Transaction</h1>
+		<h3>Add New Transaction</h3>
 
 
 		<!-- CREATE NEW TRANSACTION FORM -->
@@ -50,13 +50,13 @@
 								name="subCategory"></td>
 							<td><input type="date" name="transaction_date" class="form-control" required></td>
 							<td><input type="text" class="form-control" name="payee"></td>
+							<td><button class = "btn btn-success" type="submit" value="Submit">Add</button></td>
 						</tr>
 
 					</div>
 
 				</tbody>
 			</table>
-			<input type="submit" value="Submit">
 		</form>
 
 		<br>
@@ -76,7 +76,7 @@
 
 
 		<!--  All Transactions View -->
-		<h3>Transactions</h3>
+		<h3>Transactions(${transactions.size()})</h3>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -111,8 +111,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
 	</div>
+	
 
 
 	<script

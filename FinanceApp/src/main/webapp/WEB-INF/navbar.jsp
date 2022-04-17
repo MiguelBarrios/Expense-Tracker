@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md style="background-color:#e3f2fd;">
-	<a class="navbar-brand" href="#">FilmMVC</a>
+	<a class="navbar-brand" href="#">FinanceApp</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarText" aria-controls="navbarText"
 		aria-expanded="false" aria-label="Toggle navigation">
