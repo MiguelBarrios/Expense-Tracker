@@ -13,7 +13,7 @@ This project is a full-stack Spring MVC web application. The main goal of this w
 - Gradle 
 - JUNIT
 
-# Future Features
+## Future Features
 In the future, I would like to expand this project to allow users to create their own accounts to keep track of their own transactions. Additionally, I would like to expand the search features to include searching for transaction that are in a given date range, by keyword, and by a minimum and maximum range for the amount field. I would also like to improve the UI to make it more user-friendly. Lastly, I would like to add an additional page containing various graphs to help the user gain more insight into their spending habits. 
 
 ## Lessons Learned
