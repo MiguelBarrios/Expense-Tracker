@@ -107,6 +107,13 @@ public class TransactionController {
 		redirectAttributes.addAttribute("message", message);
 		return "redirect:/home.do";
 	}
+	
+	@RequestMapping(path="graphs.do")
+	public String graphs(Model model) {
+		List<Transaction> transactions = dao.getTransactions();
+		model.addAttribute("transactions", transactions);
+		return "graphs";
+	}
 }
 
 

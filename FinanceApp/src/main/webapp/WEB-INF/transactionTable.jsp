@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<table class="table table-hover">
+<table class="table table-hover" id="transaction_table">
 	<thead>
 		<tr>
 			<th scope="col">Date</th>
-			<th scope="col">amount</th>
+			<th scope="col">Amount</th>
 			<th scope="col">Category</th>
 			<th scope="col">Sub Category</th>
 			<th scope="col">Merchant</th>
